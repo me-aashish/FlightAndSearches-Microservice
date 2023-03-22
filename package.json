@@ -4,7 +4,7 @@
   "description": "This is flight and search microservice",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "npx nodemon src/index"
   },
   "author": "",
   "license": "ISC",
