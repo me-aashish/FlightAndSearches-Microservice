@@ -19,4 +19,15 @@
     }
 
     ``` 
-  - Once you have done all the above steps, run `npx sequelize db:create` in your shell to create the databse.  
+  - Once you have done all the above steps, run `npx sequelize db:create` in your shell to create the databse. 
+    and then run `npx sequelize db:migrate` 
+
+## DB Design
+ - Airplane Table
+ - Flight
+ - Airport
+ - City
+
+ - A flight belongs to an airplane but one airplane can be used in many flight.
+ - A city has many airports but a airport can belong to only one city.
+ - One airport can have many flights but a flight belongs to only one airport.
