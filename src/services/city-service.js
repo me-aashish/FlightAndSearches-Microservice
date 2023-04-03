@@ -1,4 +1,3 @@
-const city = require('../models/city');
 const { CityRepository } = require('../repository/index')
 
 class CityService{
@@ -46,3 +45,5 @@ class CityService{
         }
     }
 }
+
+module.exports = CityService
