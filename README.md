@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 # Welcome to flight service
 
 ## To set up the project :-
-=======
-#Welcome to flight service
 
-##To set up the project :-
->>>>>>> 95effcd36f44b161220a330a0d8781826c2574c6
   - clone project on your local
   - execute `npm install` on the same path as the root directory of your downloaded project to install dependencies and packages
   - create `.env` file in your root directory of the project and add following environment variables-
