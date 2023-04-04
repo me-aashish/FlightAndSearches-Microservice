@@ -11,6 +11,7 @@ class CityRepository{
             const city = await City.create({
                 name
             })
+            return city;
         } catch (error) {
             console.log("Something went wrong in repository layer");
             throw {error};
