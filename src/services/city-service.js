@@ -28,7 +28,7 @@ class CityService{
     async deleteCity(cityId){
         try {
              const response = await this.cityPeopsitoryObj.deleteCity(cityId);
-             return city;
+             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
