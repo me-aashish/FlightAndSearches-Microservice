@@ -66,7 +66,7 @@ const get = async(req,res)=>{
 //PATCH -> /city/:id
 const update = async(req,res)=>{
     try {
-        const city = await cityServiceObj.updateCity(req.params.id);
+        const city = await cityServiceObj.updateCity(req.params.id,req.body);
         res.status(200).json({
             data: city,
             success: true,
@@ -83,10 +83,30 @@ const update = async(req,res)=>{
     }
 }
 
+const getAll = async(req,res)=>{
+    try {
+        const cities = await cityServiceObj.getAllCities(req.query);
+        res.status(200).json({
+            data: cities,
+            success: true,
+            message: 'Successfully fetched all cities',
+            err: {}
+        })
+    } catch (error) {
+        res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to fetch all the cities',
+            err: error
+        })
+    }
+}
+
 
 module.exports = {
     create,
     destroy,
     get,
-    update
+    update,
+    getAll
 }
