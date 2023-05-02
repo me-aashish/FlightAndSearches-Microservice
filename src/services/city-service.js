@@ -47,7 +47,7 @@ class CityService{
 
     async getAllCities(filter){
         try {
-            if(filter.name){
+            if(filter.name || filter.sort){
                 // console.log(filter.name);
                 const cities = await this.cityPeopsitoryObj.getAllCities(filter);
                 return cities;

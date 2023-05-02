@@ -17,6 +17,7 @@ class CityRepository{
             console.log("Something went wrong in repository layer");
             throw {error};
         }
+        
     }
 
     async deleteCity(cityId){
@@ -67,7 +68,7 @@ class CityRepository{
 
         try {
             if(filter.name){
-                // console.log(name);
+                console.log(filter.name);
                 const cities = await City.findAll({
                     where:{
                        name:{
@@ -77,6 +78,16 @@ class CityRepository{
                 });
                 return cities;
             }
+            if(filter.sort){
+                console.log(filter.name);
+                const cities = await City.findAll({
+                   order : [
+                    ['createdAt', filter.sort]
+                   ]
+                });
+                return cities;
+            }
+
             const cities = await City.findAll();
             return cities;
         } catch (error) {
