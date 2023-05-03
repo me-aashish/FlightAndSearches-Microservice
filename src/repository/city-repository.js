@@ -7,11 +7,22 @@ class CityRepository{
 
     // }
 
-    async createCity({ name }){
+    async createCity(data){
         try {
+            // const cityArr = data.name.split(',');
+            // // console.log([...cityArr]);
+            // if(cityArr.length > 1){
+            //     const city = await City.bulkCreate(
+            //         cityArr
+            //     )
+            //     return city;
+                
+            // }
+            
             const city = await City.create({
-                name
+                    name : data.name
             })
+            
             return city;
         } catch (error) {
             console.log("Something went wrong in repository layer");
@@ -23,6 +34,7 @@ class CityRepository{
     async deleteCity(cityId){
 
         try {
+            
             await City.destroy({
                 where :{
                     id : cityId
@@ -68,7 +80,7 @@ class CityRepository{
 
         try {
             if(filter.name){
-                console.log(filter.name);
+                // console.log(filter.name);
                 const cities = await City.findAll({
                     where:{
                        name:{
@@ -79,15 +91,15 @@ class CityRepository{
                 return cities;
             }
             if(filter.sort){
-                console.log(filter.name);
+                // console.log(filter.name);
                 const cities = await City.findAll({
                    order : [
-                    ['createdAt', filter.sort]
+                    [filter.sort, "ASC"]
                    ]
                 });
                 return cities;
             }
-
+            
             const cities = await City.findAll();
             return cities;
         } catch (error) {
@@ -96,6 +108,20 @@ class CityRepository{
         }
 
     }
+    // async createManyCities(cityArray){
+
+    //     try {
+    //         const city = await City.bulkCreate({
+    //             cityArray
+    //         });
+    //         return city;
+
+    //     } catch (error) {
+    //         console.log("Something went wrong in repository layer");
+    //         throw {error};
+    //     }
+
+    // }
 
 }
 

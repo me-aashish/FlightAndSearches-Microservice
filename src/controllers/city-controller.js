@@ -5,6 +5,10 @@ const cityServiceObj = new CityService();
 
 const create = async(req,res)=>{
     try {
+        // const cityArr = req.body.name.split(',');
+        // if(cityArr.length > 1){
+        //     const city = await cityServiceObj.createCity(req.body);
+        // }
         const city = await cityServiceObj.createCity(req.body);
         res.status(201).json({
             data: city,
@@ -25,6 +29,7 @@ const create = async(req,res)=>{
 //DELETE -> /city/:id
 const destroy = async(req,res)=>{
     try {
+        
         const respond = await cityServiceObj.deleteCity(req.params.id);
         res.status(200).json({
             data: respond,
@@ -85,6 +90,7 @@ const update = async(req,res)=>{
 
 const getAll = async(req,res)=>{
     try {
+        
         const cities = await cityServiceObj.getAllCities(req.query);
         res.status(200).json({
             data: cities,
@@ -102,11 +108,26 @@ const getAll = async(req,res)=>{
     }
 }
 
+// const createMultiple = async(req,res)=>{
+//     try {
+//         const cityArray = req.body.name.split(',');
+//         const cities = await cityServiceObj.createManyCities(cityArray);
+//     } catch (error) {
+//         res.status(500).json({
+//             data: {},
+//             success: false,
+//             message: 'Not able to fetch all the cities',
+//             err: error
+//         })
+//     }
+// }
+
 
 module.exports = {
     create,
     destroy,
     get,
     update,
-    getAll
+    getAll,
+    // createMultiple
 }
