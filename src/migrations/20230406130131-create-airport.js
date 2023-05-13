@@ -23,6 +23,9 @@ module.exports = {
         },
         allowNull : false
       },
+      address:{
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,6 +35,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    await queryInterface.addColumn('Airports', 'address', { type: Sequelize.STRING });
+    
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Airports');

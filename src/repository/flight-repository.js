@@ -57,7 +57,7 @@ class FlightRepository{
     async getAllFlights(filter){
         try {
             const filterObject = this.createFilter(filter);
-            console.log(filterObject);
+            // console.log(filterObject);
             const flight = await Flight.findAll({
                 where : filterObject
             });
